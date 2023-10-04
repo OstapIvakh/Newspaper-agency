@@ -1,15 +1,70 @@
- <ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
-    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mate Online Journal</title>
+    <style>
+        /* Add your custom styles here */
+        .sidebar-nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
 
-  <br>
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+        }
 
-  <li class="list-group-item"><a href="{% url 'agency:index' %}">Home</a></li>
-  <li class="list-group-item"><a href="{% url 'agency:redactor-list' %}">All redactors</a></li>
-  <li class="list-group-item"><a href="{% url 'agency:topic-list' %}">All topics</a></li>
-  <li class="list-group-item"><a href="{% url 'agency:newspaper-list' %}">All newspapers</a></li>
-</ul>
+        .list-group-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .list-group-item a:hover {
+            color: #ff5733;
+        }
+
+
+        .list-group-item a {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item a::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #ff5733;
+            bottom: 0;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item a:hover::before {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul class="sidebar-nav list-group">
+        {% if user.is_authenticated %}
+            <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+            <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+        {% else %}
+            <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+        {% endif %}
+
+        <br>
+
+        <li class="list-group-item"><a href="{% url 'agency:index' %}">Home</a></li>
+        <li class="list-group-item"><a href="{% url 'agency:redactor-list' %}">Redactors</a></li>
+        <li class="list-group-item"><a href="{% url 'agency:topic-list' %}">Topics</a></li>
+        <li class="list-group-item"><a href="{% url 'agency:newspaper-list' %}">Newspapers</a></li>
+    </ul>
+</body>
+</html>

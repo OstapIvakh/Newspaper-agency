@@ -1,15 +1,19 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from agency.forms import NewspaperSearchForm, NewspaperForm, RedactorSearchForm, RedactorCreationForm, TopicSearchForm, \
-    RedactorUpdateForm
+from agency.forms import (
+    NewspaperForm,
+    NewspaperSearchForm,
+    RedactorSearchForm,
+    RedactorCreationForm,
+    RedactorUpdateForm,
+    TopicSearchForm,
+)
 from agency.models import Redactor, Newspaper, Topic
 
 
-# @login_required
 def index(request):
     """View function for the home page of the site."""
 
@@ -32,7 +36,7 @@ def index(request):
 
 class NewspaperListView(generic.ListView):
     model = Newspaper
-    paginate_by = 5
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperListView, self).get_context_data(**kwargs)
@@ -43,7 +47,7 @@ class NewspaperListView(generic.ListView):
         return context
 
     def get_queryset(self):
-        queryset = Newspaper.objects.all()  # .select_related("manufacturer")
+        queryset = Newspaper.objects.all()
         form = NewspaperSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(

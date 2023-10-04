@@ -60,12 +60,14 @@ class RedactorUpdateForm(forms.ModelForm):
         }
     ))
 
-    years_of_experience = forms.IntegerField(label='Years of experience', widget=forms.NumberInput(
-        attrs={
-            'placeholder': 'Enter your years of experience',
-            'class': 'form-control mb-3',
-        }
-    ))
+    years_of_experience = forms.IntegerField(
+        label='Years of experience',
+        widget=forms.NumberInput(
+            attrs={
+                'placeholder': 'Enter your years of experience',
+                'class': 'form-control mb-3',
+            }
+        ))
 
     class Meta:
         model = Redactor

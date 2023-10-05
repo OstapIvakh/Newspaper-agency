@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">
+            Redactor List
+        </h1>
+
+        <form method="get" action="" class="form-inline mb-4">
+            {{ search_form|crispy }}
+            <button type="submit" class="btn btn-secondary" aria-label="Search">🔎</button>
+        </form>
+
+        {% if redactor_list %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Years of Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for redactor in redactor_list %}
+                <tr>
+                    <td>{{ redactor.id }}</td>
+                    <td>
+                        <a href="{{ redactor.get_absolute_url }}" class="text-primary">
+                            {{ redactor.username }} {% if user == redactor %} (Me) {% endif %}
+                        </a>
+                    </td>
+                    <td>{{ redactor.first_name }}</td>
+                    <td>{{ redactor.last_name }}</td>
+                    <td>{{ redactor.years_of_experience }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'agency:redactor-create' %}" class="btn btn-primary ml-2 link-to-page">
+            Create new redactor
+        </a>
+        {% else %}
+            <p class="mt-4">There are no redactors in the service.</p>
+        {% endif %}
+    </div>
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <style>
+
+    </style>
+{% endblock %}
+
+      <footer class="footer mt-5">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <h3 style="color: #5c6773">About Mate Online Journal</h3>
+                      <p>We are your trusted source for high-quality online journals, covering a wide range of topics.</p>
+                  </div>
+                  <div class="col-md-6">
+                      <h3 style="color: #5c6773">Contact Us</h3>
+                      <p>Email: info@matejournal.com</p>
+                      <p>Phone: +1 (123) 456-7890</p>
+                  </div>
+              </div>
+              <p class="text-center text-muted">&copy; 2023 Mate Online Journal</p>
+          </div>
+      </footer>

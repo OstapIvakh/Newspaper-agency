@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+  {% block content %}
+      <div class="container">
+          <h1 class="text-center mt-4 display-4">Mate Online Journal</h1>
+          <p class="lead text-center">Discover the Best Online Journal Ever!</p>
+
+          <div class="row mt-5">
+              <div class="col-md-4">
+                  <div class="card shadow animated fadeInUp">
+                      <div class="card-body">
+                          <h2 class="card-title text-dark">Topics</h2>
+                          <p class="card-text">We have <span class="badge badge-primary">{{ num_topics }}</span> topics available.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card shadow animated fadeInUp">
+                      <div class="card-body">
+                          <h2 class="card-title text-secondary">Redactors</h2>
+                          <p class="card-text">Join our team of <span class="badge badge-primary">{{ num_redactors }}</span> redactors.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="card shadow animated fadeInUp">
+                      <div class="card-body">
+                          <h2 class="card-title text-dark">Newspapers</h2>
+                          <p class="card-text">Explore our <span class="badge badge-primary">{{ num_newspapers }}</span> newspapers.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <p class="text-center mt-4">You have visited this page <span class="badge badge-primary">{{ num_visits }}</span> time{{ num_visits|pluralize }}.</p>
+      </div>
+
+      <div>
+
+      </div>
+      <body id="bg" style="background-image: url('{% static "img/1.jpg"%}');">
+      </body>
+
+      <link rel="stylesheet" href="/static/css/styles.css">
+
+  {% endblock %}
+</body>
+</html>

@@ -2,7 +2,12 @@
  
 Django project for online journal.
 
+## Check it out!
+[Newspaper agency project deployed to Render](PASTE_LINK_HERE)
+
 ## Installation
+
+Python3 must be already installed
 
 ```shell
 git clone https://github.com/OstapIvakh/Newspaper-agency.git

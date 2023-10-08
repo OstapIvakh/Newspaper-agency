@@ -18,7 +18,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
-python manage.py loaddata test_data.json
+python manage.py loaddata db.json
 python manage.py runserver
 ```
 
@@ -31,7 +31,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
-python manage.py loaddata test_data.json
+python manage.py loaddata db.json
 python manage.py runserver
 ```
 

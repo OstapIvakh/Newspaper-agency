@@ -21,9 +21,7 @@ class NewspaperSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by title"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by title"}),
     )
 
 
@@ -34,40 +32,47 @@ class RedactorCreationForm(UserCreationForm):
             "years_of_experience",
             "first_name",
             "last_name",
-            "email"
+            "email",
         )
 
     def save(self, commit=True):
         user = super(RedactorCreationForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
+        user.email = self.cleaned_data["email"]
         if commit:
             user.save()
         return user
 
 
 class RedactorUpdateForm(forms.ModelForm):
-    first_name = forms.CharField(label='First Name', widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Enter your first name',
-            'class': 'form-control mb-3',
-        }
-    ))
+    first_name = forms.CharField(
+        label="First Name",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Enter your first name",
+                "class": "form-control mb-3",
+            }
+        ),
+    )
 
-    last_name = forms.CharField(label='Last Name', widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Enter your last name',
-            'class': 'form-control mb-3',
-        }
-    ))
+    last_name = forms.CharField(
+        label="Last Name",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Enter your last name",
+                "class": "form-control mb-3",
+            }
+        ),
+    )
 
     years_of_experience = forms.IntegerField(
-        label='Years of experience',
+        label="Years of experience",
         widget=forms.NumberInput(
             attrs={
-                'placeholder': 'Enter your years of experience',
-                'class': 'form-control mb-3',
+                "placeholder": "Enter your years of experience",
+                "class": "form-control mb-3",
             }
-        ))
+        ),
+    )
 
     class Meta:
         model = Redactor
@@ -79,9 +84,7 @@ class RedactorSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by username"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),
     )
 
 
@@ -90,7 +93,5 @@ class TopicSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={"placeholder": "Search by topic"}
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by topic"}),
     )

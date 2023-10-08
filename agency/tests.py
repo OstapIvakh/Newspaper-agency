@@ -18,14 +18,14 @@ class ModelTestCase(TestCase):
             username="testuser",
             first_name="John",
             last_name="Doe",
-            years_of_experience="1"
+            years_of_experience="1",
         )
         self.topic = Topic.objects.create(name="IT industry")
         self.newspaper = Newspaper.objects.create(
             title="Title test",
             content="Some text",
             topic=self.topic,
-            publish_date="2023-10-08T12:00:00Z"
+            publish_date="2023-10-08T12:00:00Z",
         )
         self.newspaper.publishers.add(self.redactor)
 

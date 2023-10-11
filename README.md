@@ -3,7 +3,7 @@
 Django project for managing online journal.
 
 ## Check it out!
-[Newspaper agency project deployed to Render](PASTE_LINK_HERE)
+[Newspaper agency project deployed to Render](https://newspaper-agency-geiu.onrender.com/)
 
 ## Installation
 
@@ -16,7 +16,6 @@ cd newspaper_agency
 python venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata db.json
 python manage.py runserver
@@ -29,7 +28,6 @@ cd newspaper_agency
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata db.json
 python manage.py runserver

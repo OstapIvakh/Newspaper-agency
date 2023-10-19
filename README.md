@@ -1,6 +1,7 @@
 # Newspaper-agency
- 
-Django project for managing online journal.
+
+Newspaper-agency is a Django project for managing an online magazine. 
+Provides the ability to add new editors, new topics and create articles.
 
 ## Check it out!
 [Newspaper agency project deployed to Render](https://newspaper-agency-geiu.onrender.com/)
